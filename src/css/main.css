@@ -1,0 +1,63 @@
+/*mobile first*/
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+/*main*/
+
+
+
+
+main {
+    width: 100%;
+    background-image: url(../assets/imgs/background.png);
+    background-size: cover;
+    height: 55rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monkeyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+
+#chimpa {
+    width: 20rem;
+    transition: all ease 0.1s;
+
+}
+
+
+
+
+#chimpa:active {
+    transform: scale(1.3);
+}

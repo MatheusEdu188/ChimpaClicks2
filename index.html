@@ -4,39 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChimpaClicks2</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/nav.css">
 </head>
 <body>
-    <nav>
-        <ul class="ul-nav-itens">
-            <li>
-                <button class="btn-nav"><img class="icon-nav-itens" src="./assets/imgs/icons/Upgrade icon.png" alt="upgrades"></button>
-            </li>
-            <li>
-                <button class="btn-nav"><img class="icon-nav-itens" src="./assets/imgs/icons/monkeybiceps.png" alt="treino"></button>
-            </li>
-            <li>
-                <button class="btn-nav"><img class="icon-nav-itens" src="./assets/imgs/icons/engranagem.png" alt="opcoes"></button>
-            </li>
-        </ul>
+    <nav class="navTop">
+        <h1 class="title">Chimpa<br>Clicks</h1>
+        <div class="navTopoDireito">
+            <div id="pontos">
+                <img src="./src/assets/imgs/icons/coin.png" alt="pontos">
+                <span id="pontosValue">0</span>
+            </div>
+            <div id="config">
+                <button>
+                    <img src="./src/assets/imgs/icons/icons8-engrenagem-100.png" alt="">
+                </button>
+            </div>
+        </div>
     </nav>
 
 
     <main>
         <article>
             <section>
-                <div>
-                    <span>MonkeyCoins: <span id="pontos"></span></span></span>
-                    <img id="chimpa" src="./assets/macaco_triste-removebg-preview.png" alt="chimpa">
+                <div class="monkeyContainer">
+                    <img id="chimpa" src="./src/assets/macaco_triste-removebg-preview.png" alt="chimpa">
                 </div>
             </section>
         </article>
     </main>
 
 
+    <nav class="navfooter">
+        <ul class="ul-nav-itens">
+            <li class="itemNavLi">
+                <button class="btn-nav"><img class="icon-nav-itens" src="./src/assets/imgs/icons/iconUpgrade.png" alt="upgrades"></button>
+                <span>Upgrades</span>
+                
+            </li>
+            <li class="itemNavLi">
+                <button class="btn-nav"><img class="icon-nav-itens" src="./src/assets/imgs/icons/trainIcon.png" alt="treino"></button>
+                <span>Treinar</span>
+            </li>
+            <li class="itemNavLi">
+                <button class="btn-nav"><img class="icon-nav-itens" src="./src/assets/imgs/icons/statucIcon.gif" alt="opcoes"></button>
+                <span>Status</span>
+            </li>
+            <li class="itemNavLi">
+                <button class="btn-nav"><img class="icon-nav-itens" src="./src/assets/imgs/icons/aventuraIcon.png" alt="opcoes"></button>
+                <span>Explorar</span>
+            </li>
+        </ul>
+
+    </nav>
 
 
 
-    <script type="module" src="./js/main.js"></script>
+
+
+    <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
