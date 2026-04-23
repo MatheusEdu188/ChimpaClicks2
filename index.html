@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="./src/css/main.css">
     <link rel="stylesheet" href="./src/css/nav.css">
     <link rel="stylesheet" href="./src/css/upgrades.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navTop">
@@ -38,7 +44,7 @@
                 <header class="upgradesHeader">
                     <div class="headerContainer">
                         <h2>Upgrades</h2>
-                        <span>X</span>
+                        <span id="btn-fechar-upgrades">X</span>
                     </div>
                     
 
@@ -51,18 +57,7 @@
                 </header>
                 <section class="upgradesBody">
                     <ul id="upgradesList">
-                        <li class="upgradeItem">
-                            <div class="upgradeHeader">
-                                <img class="imgUpgrade" src="./src/assets/imgs/upgrades/coinIconUpgrade.png" alt="Img">
-                                <span>Upgrade 1</span>
-                            </div>
-                            <div class="upgradeDescription">
-                                <p>Descrição do upgrade 1</p>
-                                <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">500</span>
-    
-                            </div>
-                            <button class="btn-comprar-upgrade">Comprar</button>
-                        </li>
+                        
                     </ul>
                 </section>
             </div>
@@ -72,8 +67,8 @@
 
     <nav class="navfooter">
         <ul class="ul-nav-itens">
-            <li class="itemNavLi">
-                <button class="btn-nav"><img class="icon-nav-itens" src="./src/assets/imgs/icons/iconUpgrade.png" alt="upgrades"></button>
+            <li id="btn-abrirUpgrades" class="itemNavLi">
+                <button  class="btn-nav"><img class="icon-nav-itens" src="./src/assets/imgs/icons/iconUpgrade.png" alt="upgrades"></button>
                 <span>Upgrades</span>
                 
             </li>

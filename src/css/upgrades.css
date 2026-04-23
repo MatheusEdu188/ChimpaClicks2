@@ -1,7 +1,10 @@
 .upgrades{
-    position: absolute;
+    position: absolute;  
+    display: none;                        
+    top: 1%;
+    padding-bottom: 20rem;
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: rgb(255, 250, 235);
 }
 
@@ -129,4 +132,22 @@
     border-bottom: 0.1rem solid #612a00;
     transform: translateY(0.2rem);
     background-color: #ff7a1b;
+}
+
+
+#upgradesList{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+
+
+#btn-fechar-upgrades{
+    border: none;
+    font-size: 3rem;
+    color: #973f00;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
 }

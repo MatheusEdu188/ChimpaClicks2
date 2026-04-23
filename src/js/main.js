@@ -23,7 +23,22 @@ function atualizarPontos() {
   console.log(personagem.pontos);
 }
 
-chimpa.addEventListener("click", atualizarPontos);
+chimpa.addEventListener("click",()=>{
+  atualizarPontos();
+});
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*upgrades */
 
@@ -43,7 +58,7 @@ function carregarUpgrades() {
                   <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">${upgrade.custo}</span>
     
             </div>
-            <button class="btn-comprar-upgrade" data-index="${upgrade.id}">Comprar</button>>
+            <button class="btn-comprar-upgrade" data-index="${upgrade.id}">Comprar</button>
         `;
     upgradesContainer.appendChild(upgradeElement);
   });
@@ -51,3 +66,59 @@ function carregarUpgrades() {
 
 
 carregarUpgrades();
+
+
+
+
+
+
+
+
+const btnComprarUpgrades = document.querySelectorAll(".btn-comprar-upgrade");
+
+const btnFecharUpgrades = document.getElementById("btn-fechar-upgrades");
+
+const btnAbriUpgrades = document.getElementById("btn-abrirUpgrades")
+const upgradesSection = document.querySelector(".upgrades");
+
+function fecharUpgrades(){
+  upgradesSection.style.display = "none";
+}
+
+function abrirUpgrades(){
+  upgradesSection.style.display = "block";
+}
+
+
+btnFecharUpgrades.addEventListener("click", ()=>{
+  fecharUpgrades()
+}
+)
+
+
+
+btnAbriUpgrades.addEventListener("click", ()=>{
+  abrirUpgrades();
+})
+
+
+
+
+
+
+
+
+btnComprarUpgrades.forEach((button) => {
+  button.addEventListener("click", () => {
+    const index = button.getAttribute("data-index");
+    const upgrade = upgrades.find((u) => u.id == index);
+    if (personagem.pontos >= upgrade.custo) {
+      personagem.pontos -= upgrade.custo;
+      personagem.upgrade += upgrade.ponto;
+      salvarLocalStorageArray("chimpaDados", personagem);
+      pontosChimpa.innerHTML = `${personagem.pontos}`;
+    } else {
+      alert("Pontos insuficientes para comprar este upgrade.");
+    }
+  });
+});
