@@ -52,6 +52,7 @@ main {
 #chimpa {
     width: 20rem;
     transition: all ease 0.1s;
+    position: fixed;
 
 }
 
@@ -59,5 +60,6 @@ main {
 
 
 #chimpa:active {
+    
     transform: scale(1.3);
 }

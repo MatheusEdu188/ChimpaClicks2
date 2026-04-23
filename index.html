@@ -6,6 +6,7 @@
     <title>ChimpaClicks2</title>
     <link rel="stylesheet" href="./src/css/main.css">
     <link rel="stylesheet" href="./src/css/nav.css">
+    <link rel="stylesheet" href="./src/css/upgrades.css">
 </head>
 <body>
     <nav class="navTop">
@@ -31,6 +32,40 @@
                     <img id="chimpa" src="./src/assets/macaco_triste-removebg-preview.png" alt="chimpa">
                 </div>
             </section>
+        </article>
+        <article class="upgrades">
+            <div class="upgradesContainer">
+                <header class="upgradesHeader">
+                    <div class="headerContainer">
+                        <h2>Upgrades</h2>
+                        <span>X</span>
+                    </div>
+                    
+
+                    <select name="tipo" id="tipoUpgrade">
+                        <option value="1">Coins</option>
+                        <option value="2">Força</option>
+                        <option value="3">Aura</option>
+                        <option value="4">Dano</option>
+                    </select>
+                </header>
+                <section class="upgradesBody">
+                    <ul id="upgradesList">
+                        <li class="upgradeItem">
+                            <div class="upgradeHeader">
+                                <img class="imgUpgrade" src="./src/assets/imgs/upgrades/coinIconUpgrade.png" alt="Img">
+                                <span>Upgrade 1</span>
+                            </div>
+                            <div class="upgradeDescription">
+                                <p>Descrição do upgrade 1</p>
+                                <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">500</span>
+    
+                            </div>
+                            <button class="btn-comprar-upgrade">Comprar</button>
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </article>
     </main>
 
