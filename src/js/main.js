@@ -12,14 +12,15 @@ const dados = JSON.parse(localStorage.getItem("chimpaDados"));
 if (dados) {
   personagem.pontos = dados.pontos;
   personagem.upgrade = dados.upgrade;
+  personagem.dano = dados.dano;
 }
 
-pontosChimpa.innerHTML = `${personagem.pontos}`;
+pontosChimpa.innerHTML = `${formatarNumero(personagem.pontos)}`;
 
 function atualizarPontos() {
   personagem.pontos += personagem.upgrade;
   salvarLocalStorageArray("chimpaDados", personagem);
-  pontosChimpa.innerHTML = `${personagem.pontos}`;
+  pontosChimpa.innerHTML = `${formatarNumero(personagem.pontos)}`;
   console.log(personagem.pontos);
 }
 
@@ -55,7 +56,7 @@ function carregarUpgrades() {
             </div>
             <div class="upgradeDescription">
                   <p>${upgrade.descricao}</p>
-                  <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">${upgrade.custo}</span>
+                  <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">${formatarNumero(upgrade.custo)}</span>
     
             </div>
             <button class="btn-comprar-upgrade" data-index="${upgrade.id}">Comprar</button>
@@ -113,12 +114,62 @@ btnComprarUpgrades.forEach((button) => {
     const index = button.getAttribute("data-index");
     const upgrade = upgrades.find((u) => u.id == index);
     if (personagem.pontos >= upgrade.custo) {
+      const upgradeTipo = upgrade.tipo;
       personagem.pontos -= upgrade.custo;
-      personagem.upgrade += upgrade.ponto;
+      if (upgradeTipo === "coin") {
+        personagem.upgrade += upgrade.ponto;
+      } else if (upgradeTipo === "forca") {
+        personagem.dano += upgrade.ponto;
+        
+        
+      }
       salvarLocalStorageArray("chimpaDados", personagem);
-      pontosChimpa.innerHTML = `${personagem.pontos}`;
+      pontosChimpa.innerHTML = `${formatarNumero(personagem.pontos)}`;
     } else {
       alert("Pontos insuficientes para comprar este upgrade.");
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* formatação de numeros */
+
+
+function formatarNumero(num) {
+  if (num < 1e12) {
+    return num.toLocaleString("pt-BR", {
+      notation: "compact",
+      maximumFractionDigits: 1
+    });
+  }
+
+  const unidades = ["K","M","B","T","Qa","Qi","Sx","Sp","Oc","No"];
+  let i = -1;
+
+  while (num >= 1000 && i < unidades.length - 1) {
+    num /= 1000;
+    i++;
+  }
+
+  return num.toFixed(2) + unidades[i];
+}
+
+
+
+
