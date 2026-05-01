@@ -45,28 +45,49 @@ chimpa.addEventListener("click",()=>{
 
 const upgradesContainer = document.getElementById("upgradesList");
 
-function carregarUpgrades() {
-  upgrades.forEach((upgrade) => {
-    const upgradeElement = document.createElement("li");
-    upgradeElement.classList.add("upgradeItem");
-    upgradeElement.innerHTML = `
-            <div class="upgradeHeader">
-                  <img class="imgUpgrade" src="./src/assets/imgs/upgrades/coinIconUpgrade.png" alt="Img">
-                    <span>${upgrade.nome}</span>
-            </div>
-            <div class="upgradeDescription">
-                  <p>${upgrade.descricao}</p>
-                  <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">${formatarNumero(upgrade.custo)}</span>
-    
-            </div>
-            <button class="btn-comprar-upgrade" data-index="${upgrade.id}">Comprar</button>
-        `;
-    upgradesContainer.appendChild(upgradeElement);
-  });
+function carregarUpgrades(tipo) {
+  upgradesContainer.innerHTML = "";
+  let tipoUp = []
+    if(tipo === "todos"){
+      tipoUp = upgrades.filter(i => i.id >= 0);
+    } else{
+      tipoUp = upgrades.filter(i => i.tipo.toLocaleLowerCase().includes(tipo));
+    }
+    tipoUp.forEach((upgrade) => {
+      const upgradeElement = document.createElement("li");
+      upgradeElement.classList.add("upgradeItem");
+      upgradeElement.innerHTML = `
+              <div class="upgradeHeader">
+                    <img class="imgUpgrade" src="./src/assets/imgs/upgrades/coinIconUpgrade.png" alt="Img">
+                      <span>${upgrade.nome}</span>
+              </div>
+              <div class="upgradeDescription">
+                    <p>${upgrade.descricao}</p>
+                    <span class="Valor"><img src="./src/assets/imgs/icons/coin.png" alt="coin">${formatarNumero(upgrade.custo)}</span>
+      
+              </div>
+              <button class="btn-comprar-upgrade" data-index="${upgrade.id}">Comprar</button>
+          `;
+      upgradesContainer.appendChild(upgradeElement);
+    });
+  
 }
 
 
-carregarUpgrades();
+carregarUpgrades("todos");
+
+
+
+
+const tipoUpgrade = document.getElementById("tipoUpgrade");
+
+
+tipoUpgrade.addEventListener("input", ()=>{
+  const valor = tipoUpgrade.value
+  console.log(valor);
+  
+  carregarUpgrades(valor)
+})
 
 
 
@@ -109,26 +130,30 @@ btnAbriUpgrades.addEventListener("click", ()=>{
 
 
 
-btnComprarUpgrades.forEach((button) => {
-  button.addEventListener("click", () => {
-    const index = button.getAttribute("data-index");
-    const upgrade = upgrades.find((u) => u.id == index);
-    if (personagem.pontos >= upgrade.custo) {
-      const upgradeTipo = upgrade.tipo;
-      personagem.pontos -= upgrade.custo;
-      if (upgradeTipo === "coin") {
-        personagem.upgrade += upgrade.ponto;
-      } else if (upgradeTipo === "forca") {
-        personagem.dano += upgrade.ponto;
-        
-        
-      }
-      salvarLocalStorageArray("chimpaDados", personagem);
-      pontosChimpa.innerHTML = `${formatarNumero(personagem.pontos)}`;
-    } else {
-      alert("Pontos insuficientes para comprar este upgrade.");
+upgradesContainer.addEventListener("click", (event) => {
+  const button = event.target.closest(".btn-comprar-upgrade");
+  if (!button) return;
+
+  const index = button.getAttribute("data-index");
+
+  const upgrade = upgrades.find((u) => u.id == index);
+
+  if (personagem.pontos >= upgrade.custo) {
+    const upgradeTipo = upgrade.tipo;
+
+    personagem.pontos -= upgrade.custo;
+
+    if (upgradeTipo === "coin") {
+      personagem.upgrade += upgrade.ponto;
+    } else if (upgradeTipo === "forca") {
+      personagem.dano += upgrade.ponto;
     }
-  });
+
+    salvarLocalStorageArray("chimpaDados", personagem);
+    pontosChimpa.innerHTML = `${formatarNumero(personagem.pontos)}`;
+  } else {
+    alert("Pontos insuficientes para comprar este upgrade.");
+  }
 });
 
 
