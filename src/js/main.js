@@ -96,7 +96,6 @@ tipoUpgrade.addEventListener("input", ()=>{
 
 
 
-const btnComprarUpgrades = document.querySelectorAll(".btn-comprar-upgrade");
 
 const btnFecharUpgrades = document.getElementById("btn-fechar-upgrades");
 
@@ -197,4 +196,56 @@ function formatarNumero(num) {
 
 
 
+
+
+/*API para chegar a data e hora e atualizar loja do jogo*/
+
+
+import { checarData } from "./dataAPI.js";
+
+checarData();
+
+
+
+
+
+
+
+
+
+/*explorar*/
+
+
+import { renderBatalhas } from "./configBatalha/tiposBatalhas.js";
+import { redirencionar } from "./configBatalha/tiposBatalhas.js";
+const explorar = document.querySelector(".explorar");
+const btnFecharExplorar = document.getElementById("btn-fechar-explorar");
+const btnAbrirExplorar = document.getElementById("btn-abrir-explorar");
+const explorarList = document.getElementById("explorarList")
+
+renderBatalhas()
+
+
+btnAbrirExplorar.addEventListener("click", ()=>{
+  explorar.style.display = "block"
+})
+
+
+
+
+btnFecharExplorar.addEventListener("click", ()=>{
+  explorar.style.display = "none"  
+})
+
+explorarList.addEventListener("click", (event)=>{
+  const itemClickado = event.target;
+  const local = itemClickado.closest(".btn-jogar");
+  if(local){
+    const index = local.dataset.index;
+    redirencionar(index);
+
+    
+  }
+
+})
 

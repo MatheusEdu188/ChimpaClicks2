@@ -1,0 +1,28 @@
+main{
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+}
+
+.inimigo1{
+    position: absolute;
+    bottom: 0rem;
+    left: 2rem;
+    width: 3rem;
+    height: 5rem;
+    background-color: yellow;
+}
+.inimigo2{
+    position: absolute;
+    bottom: 0rem;
+    right: 2rem;
+    width: 3rem;
+    height: 5rem;
+    background-color: yellow;
+}
+
+.campoBatalha{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}

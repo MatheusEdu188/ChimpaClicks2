@@ -1,0 +1,45 @@
+/*mobile first*/
+
+nav{
+    background-color: black;
+    height: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/*nav*/
+
+
+    /*barra vida*/
+
+    .barraVida{
+        background-color: white;
+        width: 20rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom-left-radius: 10rem;
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+    .barraVidaInterior{
+        width: 20rem;
+        height: 2rem;
+        background-color: rgb(255, 31, 31);
+        position: absolute;
+        border-bottom-left-radius: 10rem;
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 1rem;
+        z-index: 0;
+        
+    }
+
+    #coracaoIcon{
+        position: relative;
+        z-index: 2;
+    }

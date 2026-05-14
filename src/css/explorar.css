@@ -1,0 +1,177 @@
+.explorar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgb(255, 250, 235);
+    padding: 2rem 0 4rem;
+    z-index: 1000;
+}
+
+
+/* HEADER */
+
+.explorarHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 2rem 2rem;
+    width: 100%;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.explorarHeader h2 {
+    font-size: 1.8rem;
+    color: #973f00;
+}
+
+.explorarHeader span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #973f00;
+}
+
+
+/* LISTA */
+
+#explorarList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+
+/* CARD */
+
+.explorarItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    background-color: #F8F1DA;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-bottom: 7px solid #676767;
+    width: 15rem;
+    min-height: 16rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.explorarItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+
+/* IMAGEM */
+
+.imgExplorar {
+    padding: 1rem;
+    width: 3rem;
+    background-color: #F06600;
+    border-radius: 50%;
+    border-bottom: 7px solid #612a00;
+    transition: transform 0.1s ease;
+}
+
+.explorarItem:hover .imgExplorar {
+    transform: scale(1.1);
+}
+
+
+/* DESCRIÇÃO */
+
+.explorarDescription {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.explorarDescription p {
+    color: #343434;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* corrigido */
+}
+
+
+/* INFO */
+
+.nivel {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.Valor {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.Valor img {
+    width: 1.5rem;
+}
+
+
+/* BOTÃO */
+
+.btn-jogar {
+    background-color: #F06600;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border-bottom: 0.4rem solid #612a00;
+    transition: all 0.1s ease;
+}
+
+.btn-jogar:hover {
+    background-color: #ff7a1b;
+}
+
+.btn-jogar:active {
+    border-bottom: 0.1rem solid #612a00;
+    transform: translateY(0.2rem);
+}
+
+
+/* BOTÃO FECHAR */
+
+#btn-fechar-explorar {
+    font-size: 2.5rem;
+    color: #973f00;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.1s ease;
+}
+
+#btn-fechar-explorar:hover {
+    transform: scale(1.2);
+
+
+}
+
+
+/* DIV GANHOS */
+
+
+.divGanhos{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
